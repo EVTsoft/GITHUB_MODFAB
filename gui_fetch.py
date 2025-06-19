@@ -21,20 +21,25 @@ class Window(QMainWindow, Ui_mainWindow):
 
     def open_file_selection(self):
         dialog = QFileDialog()
-        file = dialog.getOpenFileName()
+        file = dialog.getOpenFileName(
+            None,
+            'Выберите файл запуска',
+            '',
+            '"ZAP" files (*.zap)'
+        )
         launch_file_name = file[0]
-        print('ok')
         subwindow = QMdiSubWindow()
         text = QPlainTextEdit()
         text.setReadOnly(True)
         subwindow.setWindowTitle(launch_file_name.split('/')[-1])
+        subwindow.setObjectName(launch_file_name.split('/')[-1])
         subwindow.setWidget(text)
         self.mdiArea.addSubWindow(subwindow)
-        print('ok')
         subwindow.showMaximized()
         cz = CLaunch(launch_file_name)
         text.insertPlainText(cz.rpt())
-        print('ok')
+
+    # def launch_tree(self):
 
 
 if __name__ == '__main__':
