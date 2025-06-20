@@ -11,11 +11,18 @@ class CModDraw():
         self.__root.title(self.__ModName)
         self.__root.geometry(self.__c.size(1.2))
         #
+<<<<<<< HEAD
         self.__canvas = Canvas(bg="#53C351", width=self.__c.X, height=self.__c.Y)
         self.__canvas.pack(anchor=CENTER, expand=1)
         #
         
 
+=======
+        self.__canvas = Canvas(bg="#53C351", width=c.width, height=c.height)
+        self.__canvas.pack(anchor=CENTER, expand=1)
+        #
+        
+>>>>>>> master
     # Отрисовка фигуры с переводом координат
     def DrawFig(self,rzm,xy,Angle,el_fill,el_outline,fig='R'):
          # Рисуем компонент

@@ -3,40 +3,57 @@ import math
 class CXY():
 
   def vl(self,half,angle=0):
-    #print (angle)
     xy=None
     if((angle==90) | (angle==270)):
-        #xy=CXY(self.x-half.x,self.y+half.y)
         xy=CXY(self.x-half.y,self.y+half.x)
     else:
-        #xy=CXY(self.x-half.y,self.y+half.x)
         xy=CXY(self.x-half.x,self.y+half.y)
     return xy
   
   def np(self,half,angle=0):
-    #print (angle)
     xy=None
     if((angle==90) | (angle==270)):
-        #xy=CXY(self.x+half.x,self.y-half.y)
         xy=CXY(self.x+half.y,self.y-half.x)
     else:
-        #xy=CXY(self.x+half.y,self.y-half.x)
         xy=CXY(self.x+half.x,self.y-half.y)
     return xy
+<<<<<<< HEAD
   
 
   def lvector(self,c):
      xy=c.tr(self)
      return math.sqrt(xy.x**2+xy.y**2)
 
+=======
+>>>>>>> master
 
   def __init__(self,x=0.,y=0.):
       self.__x=x
       self.__y=y
- 
+
+
+  def lvector(self,side,xy,size_xy,lny=True):
+    x=0.
+    if side=='F':
+        x=self.__x
+    else:
+        x=size_xy.x-self.__x 
+    y=0
+    if lny:
+        y=self.__y  
+    else:
+        y=size_xy.y-self.__y
+    x=x-xy.x    
+    y=y-xy.y    
+    return math.sqrt(x**2+y**2)
+
 
   def copy(self):
+<<<<<<< HEAD
       return CXY(self.__x,self.__y)        
+=======
+      return CXY(self.__x,self.__y)
+>>>>>>> master
 
 
   def norm(self,cxy):
@@ -128,12 +145,31 @@ class tCXY():
         return CXY(x,y) 
 
     @property
+<<<<<<< HEAD
     def X(self):
         return round(self.__brd.x*self.__scale) 
              
     @property
     def Y(self):
         return round(self.__brd.y*self.__scale)          
+=======
+    def brd(self):
+        return self.__brd
+    
+
+    @property
+    def width(self):
+        return round(self.__scale*self.__brd.x)
+    
+
+    @property
+    def height(self):
+        return round(self.__scale*self.__brd.y)
+    
+    
+    def size(self,sc):
+     return f'{round(sc*self.__scale*self.__brd.x)}x{round(sc*self.__scale*self.__brd.y)}'        
+>>>>>>> master
 
     def size(self,scl):
         return f'{round(scl*self.X)}x{round(scl*self.Y)}'
