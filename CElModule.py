@@ -209,7 +209,11 @@ class CElModule():
 
     
     # Отчет по монтажу SMD компонент
+<<<<<<< HEAD
+    def RepSMDprm(self,nIsp,side,ang=0):
+=======
     def RepSMDprm(self,nIsp,side,angle=0):
+>>>>>>> master
         SCALE=20
         sp=self.GetIsp(nIsp)
         #----------------------
@@ -219,7 +223,11 @@ class CElModule():
         retSMT=sp.rep_SMD_nozzle()
         print(retSMT[0])   
         #----------------------
+<<<<<<< HEAD
+        c=tCXY(SCALE,self.__SizeBrd,side,ang)
+=======
         c=tCXY(SCALE,self.__SizeBrd,side,angle)
+>>>>>>> master
         # Объект графического отображения       
         CMDraw=CModDraw(self.__ModName,c)
         #----------------------
@@ -242,7 +250,11 @@ class CElModule():
             for dz_rep in  lst_rep:
                 print(dz_rep)
                 CMDraw.RepDraw(dz_rep,1.)
+<<<<<<< HEAD
+            lst_rep.sort(key=lambda d : d.XY.lvector(c))
+=======
             lst_rep.sort(key=lambda d : d.XY.lvector(side,CXY(0.,0.),self.__SizeBrd))
+>>>>>>> master
             print('')
             for dd in lst_rep:
                 print (dd)
